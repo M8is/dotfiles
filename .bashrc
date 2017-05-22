@@ -117,8 +117,3 @@ if ! shopt -oq posix; then
 fi
 
 source /var/lib/gems/2.3.0/gems/tmuxinator-0.9.0/completion/tmuxinator.bash
-
-# always open in base tmux session
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
