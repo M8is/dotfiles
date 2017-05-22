@@ -72,11 +72,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# always open in base tmux session
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec "tmux attach -t base || tmux new -s base"
-fi
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -120,4 +115,10 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-alias config='/usr/bin/git --git-dir=/home/m8is/.cfg/ --work-tree=/home/m8is'
+
+source /var/lib/gems/2.3.0/gems/tmuxinator-0.9.0/completion/tmuxinator.bash
+
+# always open in base tmux session
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
