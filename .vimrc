@@ -273,6 +273,9 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+" always code search from project root instead of cwd
+let g:ag_working_path_mode="r"
+
 " }}}
 " PYTHON {{{
 
