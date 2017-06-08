@@ -175,7 +175,7 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
-nnoremap <silent> <leader>t :Shell ./mubench.pipeline/python_tests<CR> 
+nnoremap <silent> <leader>t :Shell ~/work/mubench_tests<CR> 
 
 nmap <silent> <leader>p :set paste<CR>"*p:set nopaste<CR>
 
