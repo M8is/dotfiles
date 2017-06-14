@@ -116,4 +116,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source /var/lib/gems/2.3.0/gems/tmuxinator-0.9.0/completion/tmuxinator.bash
+set -o vi 
