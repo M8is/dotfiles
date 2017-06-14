@@ -52,6 +52,9 @@ Plugin 'sjl/gundo.vim'
 " Better line numbers
 Bundle 'myusuf3/numbers.vim'
 
+" Run tmux commands from vim
+Plugin 'benmills/vimux'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -175,7 +178,7 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
-nnoremap <silent> <leader>t :Shell ~/work/mubench_tests<CR> 
+nnoremap <silent> <leader>t :VimuxRunCommand("./work/run_mubench_tests")<CR> 
 
 nmap <silent> <leader>p :set paste<CR>"*p:set nopaste<CR>
 
