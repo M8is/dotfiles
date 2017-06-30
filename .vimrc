@@ -104,12 +104,25 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+function! VimuxRunAndInspect(command)
+    call VimuxInterruptRunner()
+    call VimuxRunCommand("stty -echo")
+    call VimuxRunCommand("PS1=''")
+    call VimuxRunCommand("clear")
+    call VimuxRunCommand(a:command)
+endfunction
+
+function! LeaveVim()
+    call VimuxCloseRunner()
+endfunction
+
 " }}}
 " AUTOCOMMANDS {{{
 
 augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
+    autocmd VimLeave * :call LeaveVim()
     autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md :call <SID>StripTrailingWhitespaces()
     autocmd FileType java setlocal noexpandtab
     autocmd FileType java setlocal list
@@ -144,12 +157,12 @@ nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
 " git commands
-noremap <silent> <leader>gs :VimuxRunCommand("git status")<CR>
-noremap <silent> <leader>ga :VimuxRunCommand("git add -p .")<CR>
-noremap <silent> <leader>gc :VimuxRunCommand("git commit")<CR>
-noremap <silent> <leader>gd :VimuxRunCommand("git diff")<CR>
+noremap <silent> <leader>gs :call VimuxRunAndInspect("git status")<CR>
+noremap <silent> <leader>ga :call VimuxRunAndInspect("git add -p .")<CR>
+noremap <silent> <leader>gc :call VimuxRunAndInspect("git commit")<CR>
+noremap <silent> <leader>gd :call VimuxRunAndInspect("git diff")<CR>
 
-nnoremap <silent> <leader>t :VimuxRunCommand("~/work/run_mubench_tests")<CR>
+nnoremap <silent> <leader>t :call VimuxRunAndInspect("~/work/run_mubench_tests")<CR>
 
 nmap <silent> <leader>p :set paste<CR>"*p:set nopaste<CR>
 
@@ -170,6 +183,9 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " save session
 nnoremap <leader>s :mksession<CR>
+
+" reload vim config
+nnoremap <leader>rc :source ~/.vimrc<CR>
 
 " }}}
 " PLUGIN CONFIG {{{ 
@@ -249,6 +265,12 @@ let g:airline_symbols.linenr = ''
 
 " always code search from project root instead of cwd
 let g:ag_working_path_mode="r"
+
+" spawn vimux split horizontally with 40% width
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "40"
+" don't use existing window for vimux command
+let g:VimuxUseNearest = 0
 
 " }}}
 " PYTHON {{{
