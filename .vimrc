@@ -55,6 +55,9 @@ Bundle 'myusuf3/numbers.vim'
 " Run tmux commands from vim
 Plugin 'benmills/vimux'
 
+" Surround stuff
+Plugin 'tpope/vim-surround'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -185,7 +188,7 @@ nnoremap <leader>u :GundoToggle<CR>
 nnoremap <leader>s :mksession<CR>
 
 " reload vim config
-nnoremap <leader>rc :source ~/.vimrc<CR>
+nnoremap <leader>cr :source ~/.vimrc<CR>
 
 " }}}
 " PLUGIN CONFIG {{{ 
