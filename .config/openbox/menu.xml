@@ -16,7 +16,8 @@
   </item>
   <separator />
   <item label="Log Out">
-    <action name="Exit">
+    <action name="Execute">
+      <command>openbox --exit</command>
       <prompt>Log Out?</prompt>
     </action>
   </item>
