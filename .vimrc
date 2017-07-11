@@ -45,6 +45,7 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Configure Color Schemes
 Plugin 'romainl/flattened'
+Plugin 'altercation/vim-colors-solarized'
 
 " Visualize undo tree
 Plugin 'sjl/gundo.vim'
@@ -89,11 +90,13 @@ set splitright
 
 set cursorline	" highlight current line
 set lazyredraw	" redraw only when needed, e.g. not during macros
-set showmatch	" hight matching [{()}] 
+set showmatch	" highlight matching [{()}] 
 
 set encoding=utf-8
 
-colorscheme flattened_dark
+set t_Co=256
+set background=dark
+colorscheme solarized
 
 " strips trailing whitespace at the end of files. this
 " is called on buffer write in the autogroup.
