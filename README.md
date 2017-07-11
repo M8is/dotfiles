@@ -4,7 +4,12 @@ Just my config. :)
 ## Getting Started
 
 ### Prerequisites
+- Zsh
+- Font(s)
 - Git
+- Vim
+- Vundle
+- Tmux
 
 ### Installing
 
