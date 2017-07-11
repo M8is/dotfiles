@@ -10,6 +10,7 @@ Just my config. :)
 - Vim
 - Vundle
 - Tmux
+- Silver Searcher
 
 ### Installing
 
