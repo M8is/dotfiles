@@ -40,5 +40,15 @@
   control+alt + m
 # }}}
 # FN KEYS {{{
+# increase volume
+"amixer set Master 5%+"
+  XF86AudioRaiseVolume
 
+# decrease volume
+"amixer set Master 5%-"
+  XF86AudioLowerVolume
+
+# toggle mute
+"amixer set Headphone unmute; amixer set Speaker unmute; amixer set Master toggle"
+  XF86AudioMute
 # }}}
