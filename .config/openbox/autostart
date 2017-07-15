@@ -1,3 +1,6 @@
+# start conky system monitor
+(sleep2 && conky)
+
 # Launch Xcomppmgr and tint2 with openbox
 if which tint2 >/dev/null 2>&1; then
   (sleep 2 && xcompmgr) &
