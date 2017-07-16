@@ -3,18 +3,6 @@
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 
 <menu id="root-menu" label="Openbox 3">
-  <separator label="Applications" />
-  <item label="Chromium">
-    <action name="Execute">
-      <command>chromium</command>
-    </action>
-  </item>
-  <item label="Thunderbird">
-    <action name="Execute">
-      <command>thunderbird</command>
-    </action>
-  </item>
-  <separator />
   <item label="Log Out">
     <action name="Execute">
       <command>openbox --exit</command>
