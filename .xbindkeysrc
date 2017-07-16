@@ -51,4 +51,13 @@
 # toggle mute
 "amixer set Headphone unmute; amixer set Speaker unmute; amixer set Master toggle"
   XF86AudioMute
+
+# monitor brightness up
+"xbacklight -inc 50"
+  XF86MonBrightnessUp
+
+# monitor brightness down
+"xbacklight -dec 50"
+  XF86MonBrightnessDown
+
 # }}}
