@@ -1,5 +1,22 @@
+# start compton for compositing effects
+if which compton >/dev/null 2>&1; then
+  compton -b
+fi
+
 # start conky system monitor
-(sleep2 && conky)
+if which conky >/dev/null 2>&1; then
+  conky &
+fi
+
+# start volumeicon
+if which volumeicon >/dev/null 2>&1; then
+  volumeicon &
+fi
+
+# restore wallpaper
+if which nitrogen >/dev/null 2>&1; then
+  nitrogen --restore &
+fi
 
 # Launch Xcomppmgr and tint2 with openbox
 if which tint2 >/dev/null 2>&1; then
