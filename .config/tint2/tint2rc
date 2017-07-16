@@ -1,38 +1,24 @@
 # Backgrounds {{{
 # Background 1: Panel
 rounded = 0
-border_width = 2
+border_width = 0
 background_color = #000000 0
-border_color = #000000 100
+border_color = #ffffff 100
 # Background 2: Tooltip
 rounded = 1
-border_width = 1
-background_color = #ffffaa 100
+border_width = 0
+background_color = #000000 100
 border_color = #000000 100
 # }}}
-# Separators {{{
-separator = new
-separator_background_id = 3
-separator_color = #000000 100
-separator_style = line
-separator_size = 2
-separator_padding = 0 0
-separator = new
-separator_background_id = 3
-separator_color = #000000 100
-separator_style = line
-separator_size = 2
-separator_padding = 0 0
-# }}}
 # Panel {{{
-panel_items = T:B:C
-panel_monitor = all
+panel_items = CBS
+panel_monitor = 1	
 primary_monitor_first = 1
-panel_position = bottom center horizontal
-panel_size = 100% 45
+panel_position = top right vertical
+panel_size = 30% 100
 panel_shrink = 0
 panel_margin = 3 3
-panel_padding = 0 0 10
+panel_padding = 0 0 0
 panel_background_id = 1
 wm_menu = 1
 panel_dock = 0
@@ -103,7 +89,7 @@ tooltip_padding = 2 2
 tooltip_show_timeout = 0.1
 tooltip_hide_timeout = 0.1
 tooltip_background_id = 2
-tooltip_font_color = #222222 100
+tooltip_font_color = #ffffff 100
 # }}}
 # Battery {{{
 battery_hide = never
