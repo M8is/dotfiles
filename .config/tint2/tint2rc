@@ -11,11 +11,11 @@ background_color = #000000 100
 border_color = #000000 100
 # }}}
 # Panel {{{
-panel_items = CBS
+panel_items = CB
 panel_monitor = 1	
 primary_monitor_first = 1
 panel_position = top right vertical
-panel_size = 30% 100
+panel_size = 100% 100
 panel_shrink = 0
 panel_margin = 3 3
 panel_padding = 0 0 0
