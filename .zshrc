@@ -8,11 +8,11 @@ compinit
 setopt COMPLETE_ALIASES
 
 # setup prompt
-vim_ins_mode="%{$fg[white]%}%{$fg_bold[blue]$bg[white]%} INSERT %{$reset_color%}"
-vim_cmd_mode="%{$fg[green]%}%{$fg_bold[black]$bg[green]%} NORMAL %{$reset_color%}"
+vim_ins_mode="%F{white}%B%F{blue}%K{white} INSERT %k%f%b"
+vim_cmd_mode="%F{green}%B%F{black}%K{green} NORMAL %k%f%b"
 vim_mode=$vim_ins_mode
 function zle-line-init zle-keymap-select {
-    PS1=" %F{yellow}%1~%f > "
+    PS1=" %~ > "
     RPS1="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
     RPS2=$RPS1
     zle reset-prompt
