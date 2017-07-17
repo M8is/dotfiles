@@ -1,3 +1,6 @@
+# add user defined functions
+fpath=( "$HOME/.zfunctions" $fpath )
+
 # enable vi mode
 bindkey -v
 export KEYTIMEOUT=1
