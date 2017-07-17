@@ -11,6 +11,7 @@ Just my config. :)
 - Vundle
 - Tmux
 - Silver Searcher
+- Pure ZSH prompt
 
 ### Installing
 
