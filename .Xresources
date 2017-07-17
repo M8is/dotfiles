@@ -13,8 +13,8 @@ URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
 ! Fonts
-URxvt.allow_bold:           false
-URxvt*font: xft:inconsolata:size=14
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=15:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=15:antialias=true:hinting=trueURxvt*font: xft:dejavu:size=11
 
 ! Fix font space
 URxvt*letterSpace: -1
