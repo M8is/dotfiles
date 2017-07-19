@@ -69,7 +69,7 @@ ${offset 20}${fs_bar /}
 ${offset 20}/home $alignc ${fs_used /home} / ${fs_size /home} $alignr ${fs_used_perc /home}%
 ${offset 20}${fs_bar /home}
 
-${color #FFFFFF}${if_up wlp3s0}wlp4s0 (${addr wlp3s0}) ${hr 2}$color
+${color #FFFFFF}${if_up wlp3s0}wlp3s0 (${addr wlp3s0}) ${hr 2}$color
 
 ${offset 20}${color white}$color ${downspeed wlp3s0}${alignr}${color white}$color ${upspeed wlp3s0}
 ${offset 20}${downspeedgraph wlp3s0 25,100} ${alignr}${upspeedgraph wlp3s0 25,100}$color${endif}
