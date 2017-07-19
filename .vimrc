@@ -152,6 +152,12 @@ augroup configgroup
     autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup END
 
+augroup VCenterCursor
+    au!
+    au BufEnter,WinEnter,WinNew,VimResized *,*.*
+	    \ let &scrolloff=winheight(win_getid())/2
+augroup END
+
 " }}}
 " KEY MAPPINGS {{{
 
