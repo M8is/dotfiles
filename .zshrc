@@ -14,5 +14,12 @@ setopt COMPLETE_ALIASES
 autoload -U promptinit; promptinit
 prompt pure
 
+# setup history
+export HISTSIZE=2000
+export HISTFILE="$HOME/.zsh_history"
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
 # setup aliases
 . ~/.zsh_aliases
