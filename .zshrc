@@ -18,6 +18,7 @@ prompt pure
 export HISTSIZE=2000
 export HISTFILE="$HOME/.zsh_history"
 export SAVEHIST=$HISTSIZE
+setopt inc_append_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 
