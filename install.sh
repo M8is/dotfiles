@@ -6,6 +6,10 @@ pushd "$DOTFILES" > /dev/null
 BACKUP=${DOTFILES}_backup
 
 git ls-files --exclude-standard | while read i ; do
+	if [ "$i" -eq "README.md" ] | [ "$i" -eq "LICENCE" ] | [ "$i" -eq "install.sh" ]; then
+		continue
+	fi
+
   if [ -f "$HOME/$i" ]; then
     mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
   fi
