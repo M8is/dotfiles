@@ -1,14 +1,12 @@
 #! /bin/bash
 
-CHECKOUT=$HOME/dotfiles
-BACKUP=${CHECKOUT}_backup
-
-git clone https://github.com/M8is/dotfiles $CHECKOUT
+DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+BACKUP=${DOTFILES}_backup
 
 # setup symlinks
-for i in $(pushd "$CHECKOUT" && git ls-files && popd); do
+for i in $(pushd "$DOTFILES" && git ls-files && popd); do
 	# create backup
 	mkdir --parents "$BACKUP/$i"; mv "$i" $_
 	# create symlink
-	ls -s "$CHECKOUT/$i" "$HOME/$i"
+	ls -s "$DOTFILES/$i" "$HOME/$i"
 done
