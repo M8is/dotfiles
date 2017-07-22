@@ -1,7 +1,7 @@
 #! /bin/bash                                                                                                                                 
  
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-pushd "$DOTFILES"
+pushd "$DOTFILES" > /dev/null
 
 BACKUP=${DOTFILES}_backup
 
@@ -13,4 +13,4 @@ git ls-files --exclude-standard | while read i ; do
   mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
 done
 
-popd
+popd > /dev/null
