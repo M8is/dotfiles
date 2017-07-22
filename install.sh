@@ -6,9 +6,9 @@ pushd "$DOTFILES" > /dev/null
 BACKUP=${DOTFILES}_backup
 
 git ls-files --exclude-standard | while read i ; do
-	if [ "$i" == "README.md" ] | [ "$i" == "LICENCE" ] | [ "$i" == "install.sh" ]; then
-		continue
-	fi
+  if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == "install.sh" ]]; then
+    continue
+  fi
 
   if [ -f "$HOME/$i" ]; then
     mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
