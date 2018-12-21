@@ -17,7 +17,9 @@ For Window Manager:
 - Openbox
 - rxvt-unicode (urxvt)
 - Conky
-- xbindkeys
+- Xbindkeys
+- Xcompmgr
+- Tint2
 
 ### Installing
 
