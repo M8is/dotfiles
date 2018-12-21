@@ -32,7 +32,7 @@
   control+alt + t
 
 # open web browser
-"chromium"
+"firefox"
   control+alt + w
 
 # open mail client
