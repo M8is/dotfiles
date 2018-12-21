@@ -35,10 +35,6 @@
 "firefox"
   control+alt + w
 
-# open mail client
-"thunderbird"
-  control+alt + m
-
 # open file browser
 "urxvt -e ranger"
   control+alt + e
