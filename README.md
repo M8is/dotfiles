@@ -13,9 +13,11 @@ Just my config. :)
 - Silver Searcher
 - Pure ZSH prompt
 
+For Window Manager:
+- Openbox
+- rxvt-unicode (urxvt)
+- Conky
+
 ### Installing
 
-TBD
-
-## Sources
-Thanks to [Nicola Paolucci](https://twitter.com/durdn) for [the instructions to setup this repository](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
+Run `install.sh`, which will create links for all files in this repo. A backup will be created in `~/dotfiles_backup/`.
