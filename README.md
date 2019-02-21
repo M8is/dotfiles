@@ -20,6 +20,7 @@ For Window Manager:
 - Xbindkeys
 - Xcompmgr
 - Tint2
+- nitrogen
 
 ### Installing
 
