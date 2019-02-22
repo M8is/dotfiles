@@ -32,11 +32,6 @@
   control+alt + t
 
 # open web browser
-"firefox"
+"google-chrome"
   control+alt + w
-
-# open file browser
-"urxvt -e ranger"
-  control+alt + e
-
 # }}}
