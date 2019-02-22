@@ -21,6 +21,8 @@ For Window Manager:
 - Xcompmgr
 - Tint2
 - nitrogen
+- xbacklight
+- alsamixer
 
 ### Installing
 
