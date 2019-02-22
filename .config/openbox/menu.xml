@@ -11,13 +11,13 @@
   </item>
   <item label="Shutdown">
     <action name="Execute">
-      <command>shutdown now</command>
+      <command>sudo shutdown now</command>
       <prompt>Shutdown?</prompt>
     </action>
   </item>
   <item label="Reboot">
     <action name="Execute">
-      <command>shutdown --reboot now</command>
+      <command>sudo shutdown --reboot now</command>
       <prompt>Reboot?</prompt>
     </action>
   </item>
