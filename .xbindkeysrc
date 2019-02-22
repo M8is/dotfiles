@@ -49,11 +49,11 @@
   XF86AudioMute
 
 # monitor brightness up
-"xbacklight -inc 50"
+"xbacklight -inc 10"
   XF86MonBrightnessUp
 
 # monitor brightness down
-"xbacklight -dec 50"
+"xbacklight -dec 10"
   XF86MonBrightnessDown
 
 # }}}
