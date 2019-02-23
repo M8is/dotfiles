@@ -35,6 +35,10 @@
 "google-chrome"
   Mod4 + w
 
+# open app launcher
+"rofi -combi-modi drun,window -show combi -modi combi"
+  Mod4 + a
+
 # }}}
 # FN KEYS {{{
 # increase volume
