@@ -17,4 +17,7 @@ git ls-files --exclude-standard | while read i ; do
   mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
 done
 
+# set global gitignore
+git config --global core.excludesfile "$HOME/.gitignore_global"
+
 popd > /dev/null
