@@ -29,11 +29,12 @@
 # APPLICATIONS {{{
 # open terminal
 "urxvt"
-  control+alt + t
+  Mod4 + t
 
 # open web browser
 "google-chrome"
-  control+alt + w
+  Mod4 + w
+
 # }}}
 # FN KEYS {{{
 # increase volume
