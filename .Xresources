@@ -14,7 +14,6 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt*font: xft:DejaVu Sans Mono for Powerline:pixelsize=15:antialias=true:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono Bold for Powerline:pixelsize=15:antialias=true:hinting=true
 
 ! Fix font space
 URxvt*letterSpace: -1
