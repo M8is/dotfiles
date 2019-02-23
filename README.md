@@ -23,6 +23,7 @@ For Window Manager:
 - nitrogen
 - xbacklight
 - alsamixer
+- rofi
 
 ### Installing
 
