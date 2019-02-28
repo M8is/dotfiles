@@ -18,6 +18,6 @@ git ls-files --exclude-standard | while read i ; do
 done
 
 # set global gitignore
-git config --global core.excludesfile "$HOME/.config/git/gitignore_global"
+git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
 
 popd > /dev/null
