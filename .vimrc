@@ -2,6 +2,7 @@
 
 " GENERAL CONFIG {{{
 
+" search files in subdirectories
 set path+=**
 
 " open split window below or to the right
