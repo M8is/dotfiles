@@ -1,42 +1,8 @@
 " .vimrc by M8is
 
-" VUNDLE CONFIG {{{
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" Run tmux commands from vim
-Plugin 'benmills/vimux'
-
-" Surround stuff
-Plugin 'tpope/vim-surround'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" }}}
 " GENERAL CONFIG {{{
+
+set path+=**
 
 " open split window below or to the right
 set splitbelow
@@ -50,18 +16,6 @@ set encoding=utf-8
 
 set t_Co=256
 set background=dark
-
-function! VimuxRunAndInspect(command)
-    call VimuxInterruptRunner()
-    call VimuxRunCommand("stty -echo")
-    call VimuxRunCommand("PS1=''")
-    call VimuxRunCommand("clear")
-    call VimuxRunCommand(a:command)
-endfunction
-
-function! LeaveVim()
-    call VimuxCloseRunner()
-endfunction
 
 " }}}
 " KEY MAPPINGS {{{
@@ -81,15 +35,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " }}}
-" PLUGIN CONFIG {{{ 
-
-" spawn vimux split horizontally with 40% width
-let g:VimuxOrientation = "h"
-let g:VimuxHeight = "40"
-" don't use existing window for vimux command
-let g:VimuxUseNearest = 0
-
-" }}}
 " PYTHON {{{
 
 " PEP8 indentation for Python
@@ -102,14 +47,6 @@ au BufNewFile,BufRead *.py
 	\|setlocal fileformat=unix
 
 syntax on
-
-" }}}
-" INITIALIZATION INSTRUCTIONS {{{
-
-" Setup Vundle
-" git clone https://github.com/VundleVim/Vundle.vim.git
-" ~/.vim/bundle/Vundle.vim
-" run :PluginInstall in vim 
 
 " }}}
 
