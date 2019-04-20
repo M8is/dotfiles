@@ -126,12 +126,10 @@
        use obconf if you want to change these without having to log out
        and back in -->
   <number>4</number>
-  <firstdesk>1</firstdesk>
+  <firstdesk>2</firstdesk>
   <names>
-    <!-- set names up here if you want to, like this:
-    <name>desktop 1</name>
-    <name>desktop 2</name>
-    -->
+    <name>terminal</name>
+    <name>web</name>
   </names>
   <popupTime>875</popupTime>
   <!-- The number of milliseconds to show the popup for when switching
@@ -164,7 +162,7 @@
   <top>0</top>
   <bottom>0</bottom>
   <left>0</left>
-  <right>0</right>
+  <right>20</right>
 </margins>
 
 <dock>
@@ -214,16 +212,16 @@
   <keybind key="S-A-j">
     <action name="SendToDesktop"><to>down</to><wrap>no</wrap></action>
   </keybind>
-  <keybind key="W-F1">
+  <keybind key="W-1">
     <action name="GoToDesktop"><to>1</to></action>
   </keybind>
-  <keybind key="W-F2">
+  <keybind key="W-2">
     <action name="GoToDesktop"><to>2</to></action>
   </keybind>
-  <keybind key="W-F3">
+  <keybind key="W-3">
     <action name="GoToDesktop"><to>3</to></action>
   </keybind>
-  <keybind key="W-F4">
+  <keybind key="W-4">
     <action name="GoToDesktop"><to>4</to></action>
   </keybind>
   <keybind key="W-d">
@@ -274,35 +272,61 @@
   </keybind>
 
   <!-- Keybindings for window switching with the arrow keys -->
-  <keybind key="W-S-Right">
+  <keybind key="W-Right">
     <action name="DirectionalCycleWindows">
       <direction>right</direction>
     </action>
   </keybind>
-  <keybind key="W-S-Left">
+  <keybind key="W-Left">
     <action name="DirectionalCycleWindows">
       <direction>left</direction>
     </action>
   </keybind>
-  <keybind key="W-S-Up">
+  <keybind key="W-Up">
     <action name="DirectionalCycleWindows">
       <direction>up</direction>
     </action>
   </keybind>
-  <keybind key="W-S-Down">
+  <keybind key="W-Down">
     <action name="DirectionalCycleWindows">
       <direction>down</direction>
     </action>
   </keybind>
 
   <!-- Keybindings for running applications -->
+  <keybind key="W-t">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>no</enabled>
+      </startupnotify>
+      <command>urxvt</command>
+    </action>
+  </keybind>
+  <keybind key="W-a">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>Launcher</name>
+      </startupnotify>
+      <command>rofi -combi-modi drun,window -show combi -modi combi</command>
+    </action>
+  </keybind>
+  <keybind key="W-w">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>Chrome</name>
+      </startupnotify>
+      <command>google-chrome</command>
+    </action>
+  </keybind>
   <keybind key="W-e">
     <action name="Execute">
       <startupnotify>
         <enabled>true</enabled>
-        <name>Konqueror</name>
+        <name>Files</name>
       </startupnotify>
-      <command>kfmclient openProfile filemanagement</command>
+      <command>nautilus</command>
     </action>
   </keybind>
 </keyboard>

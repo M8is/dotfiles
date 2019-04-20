@@ -26,21 +26,8 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-# APPLICATIONS {{{
-# open terminal
-"urxvt"
-  Mod4 + t
+# FN KEYS
 
-# open web browser
-"google-chrome"
-  Mod4 + w
-
-# open app launcher
-"rofi -combi-modi drun,window -show combi -modi combi"
-  Mod4 + a
-
-# }}}
-# FN KEYS {{{
 # increase volume
 "amixer set Master 5%+"
   XF86AudioRaiseVolume
@@ -60,5 +47,3 @@
 # monitor brightness down
 "xbacklight -dec 10"
   XF86MonBrightnessDown
-
-# }}}
