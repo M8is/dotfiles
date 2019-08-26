@@ -1,5 +1,35 @@
-#! /bin/bash                                                                                                                                 
- 
+#!/bin/bash
+
+### Install dependencies
+sudo apt install zsh             \
+                 fonts-powerline \
+                 git             \
+                 vim             \
+                 tmux            \
+                 openbox         \
+                 rxvt-unicode    \
+                 conky           \
+                 xbindkeys       \
+                 xcompmgr        \
+                 xbacklight      \
+                 tint            \
+                 nitrogen        \
+                 alsamixer       \
+                 rofi
+
+# Vim plugin manager (Vundle)
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+# Pure zsh prompt
+git clone https://github.com/sindresorhus/pure.git ~/.pure_prompt
+ln -s ~/.pure_prompt/pure.zsh ~/.zfunctions/prompt_pure_setup
+ln -s ~/.pure_prompt/async.zsh ~/.zfunctions/async
+
+###########################################
+### Symlink dotfiles and create backups ###
+###########################################
+
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd "$DOTFILES" > /dev/null
 
