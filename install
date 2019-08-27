@@ -15,7 +15,7 @@ $HOME/.tmux/plugins/tpm/bin/install_plugins
 
 # Pure zsh prompt
 PURE_DIR="$HOME/.pure_prompt"
-[ ! -d "$PURE_DIR" ] git clone https://github.com/sindresorhus/pure.git "$PURE_DIR"
+[ ! -d "$PURE_DIR" ] && git clone https://github.com/sindresorhus/pure.git "$PURE_DIR"
 mkdir $HOME/.zfunctions
 ln -s "$PURE_DIR/pure.zsh" $HOME/.zfunctions/prompt_pure_setup
 ln -s "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
