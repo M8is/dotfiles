@@ -1,0 +1,15 @@
+zsh
+fonts-powerline
+git
+vim
+tmux
+openbox
+rxvt-unicode
+conky
+xbindkeys
+xcompmgr
+xbacklight
+tint
+nitrogen
+alsa-utils
+rofi
