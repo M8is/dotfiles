@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # map caps lock to escape
 setxkbmap -option caps:escape
 

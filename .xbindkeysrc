@@ -26,17 +26,24 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-# APPLICATIONS {{{
-# open terminal
-"urxvt"
-  control+alt + t
+# FN KEYS
 
-# open web browser
-"firefox"
-  control+alt + w
+# increase volume
+"amixer set Master 5%+"
+  XF86AudioRaiseVolume
 
-# open file browser
-"urxvt -e ranger"
-  control+alt + e
+# decrease volume
+"amixer set Master 5%-"
+  XF86AudioLowerVolume
 
-# }}}
+# toggle mute
+"amixer set Headphone unmute; amixer set Speaker unmute; amixer set Master toggle"
+  XF86AudioMute
+
+# monitor brightness up
+"xbacklight -inc 10"
+  XF86MonBrightnessUp
+
+# monitor brightness down
+"xbacklight -dec 10"
+  XF86MonBrightnessDown

@@ -1,6 +1,12 @@
 # add user defined functions
 fpath=( "$HOME/.zfunctions" $fpath )
 
+# add local scripts
+export PATH="$PATH:$HOME/.local/bin"
+
+# add sbin
+export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
+
 # enable vi mode
 bindkey -v
 export KEYTIMEOUT=1
