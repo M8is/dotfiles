@@ -18,21 +18,21 @@ sudo apt install zsh             \
                  rofi
 
 # Vim plugin manager (Vundle)
-VUNDLE_DIR="~/.vim/bundle/Vundle.vim"
+VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
 [ ! -d "$VUNDLE_DIR" ] && git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_DIR"
 vim +PluginInstall +qall
 
 # Tmux plugin Manager (tpm)
-TPM_DIR="~/.tmux/plugins/tpm"
+TPM_DIR="$HOME/.tmux/plugins/tpm"
 [ ! -d "$VUNDLE_DIR" ] && git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
-~/.tmux/plugins/tpm/bin/install_plugins
+$HOME/.tmux/plugins/tpm/bin/install_plugins
 
 # Pure zsh prompt
-PURE_DIR="~/.pure_prompt"
+PURE_DIR="$HOME/.pure_prompt"
 [ ! -d "$PURE_DIR" ] git clone https://github.com/sindresorhus/pure.git "$PURE_DIR"
-mkdir ~/.zfunctions
-ln -s "${PURE_DIR}/pure.zsh" ~/.zfunctions/prompt_pure_setup
-ln -s "${PURE_DIR}/async.zsh" ~/.zfunctions/async
+mkdir $HOME/.zfunctions
+ln -s "$PURE_DIR/pure.zsh" $HOME/.zfunctions/prompt_pure_setup
+ln -s "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
 
 ###########################################
 ### Symlink dotfiles and create backups ###
