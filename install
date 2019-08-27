@@ -9,7 +9,7 @@ xargs sudo apt-get install < $DOTFILES/pkglist.txt
 # Vim plugin manager (Vundle)
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
 [ ! -d "$VUNDLE_DIR" ] && git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_DIR"
-vim +PluginInstall +qall
+echo | echo | vim +PluginInstall +qall &>/dev/null
 
 # Tmux plugin Manager (tpm)
 TPM_DIR="$HOME/.tmux/plugins/tpm"
