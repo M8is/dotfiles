@@ -17,10 +17,11 @@ filetype plugin indent on    " required
 
 " GENERAL {{{
 
-set t_Co=256       " set 256 colors
-set showmatch      " highlight matching surrounding elements
-let mapleader="\"  " set leader explicitly
-syntax on          " enable syntax highlighting
+set t_Co=256            " set 256 colors
+set showmatch           " highlight matching surrounding elements
+nnoremap <Space> <NOP>  " unmap space
+let mapleader=" "       " set leader to space
+syntax on               " enable syntax highlighting
 
 " }}}
 
