@@ -25,6 +25,10 @@ mkdir $HOME/.zfunctions
 ln -s "$PURE_DIR/pure.zsh" $HOME/.zfunctions/prompt_pure_setup
 ln -s "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
 
+# set global gitignore
+git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
+
+
 ###########################################
 ### Symlink dotfiles and create backups ###
 ###########################################
@@ -32,19 +36,20 @@ pushd "$DOTFILES" > /dev/null
 
 BACKUP=${DOTFILES}_backup
 
-git ls-files --exclude-standard | while read i ; do
-  if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == `basename "$0"` ]]; then
-    continue
-  fi
+if [ -d $BACKUP ]; then 
+  echo "Skipping generating dotfiles: backup dir already exists!"
+else
+  git ls-files --exclude-standard | while read i ; do
+    if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == `basename "$0"` ]]; then
+      continue
+    fi
 
-  if [ -f "$HOME/$i" ]; then
-    mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
-  fi
+    if [ -f "$HOME/$i" ]; then
+      mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
+    fi
   
-  mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
-done
-
-# set global gitignore
-git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
+    mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
+  done
+fi
 
 popd > /dev/null
