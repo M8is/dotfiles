@@ -36,7 +36,7 @@ pushd "$DOTFILES" > /dev/null
 BACKUP=${DOTFILES}_backup
 
 git ls-files --exclude-standard | while read i ; do
-  if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == "install.sh" ]]; then
+  if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == `basename "$0"` ]]; then
     continue
   fi
 
