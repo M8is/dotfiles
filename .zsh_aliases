@@ -1,2 +1,1 @@
-# alias for dotfile repository
-alias config='git --git-dir=$HOME/dotfiles/.git --work-tree=$HOME/dotfiles'
+
