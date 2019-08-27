@@ -15,7 +15,7 @@ echo | echo | vim +PluginInstall +qall &>/dev/null
 
 # Tmux plugin Manager (tpm)
 TPM_DIR="$HOME/.tmux/plugins/tpm"
-[ ! -d "$VUNDLE_DIR" ] && git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+[ ! -d "$TPM_DIR" ] && git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 $HOME/.tmux/plugins/tpm/bin/install_plugins
 
 # Pure zsh prompt
