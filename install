@@ -1,21 +1,7 @@
 #!/bin/bash
 
 ### Install dependencies
-sudo apt install zsh             \
-                 fonts-powerline \
-                 git             \
-                 vim             \
-                 tmux            \
-                 openbox         \
-                 rxvt-unicode    \
-                 conky           \
-                 xbindkeys       \
-                 xcompmgr        \
-                 xbacklight      \
-                 tint            \
-                 nitrogen        \
-                 alsamixer       \
-                 rofi
+sudo apt install zsh fonts-powerline git vim tmux openbox rxvt-unicode conky xbindkeys xcompmgr xbacklight tint nitrogen alsamixer rofi
 
 # Vim plugin manager (Vundle)
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
