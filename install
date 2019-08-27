@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Find dotfiles dir
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
