@@ -4,7 +4,7 @@
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Install dependencies
-xargs sudo apt-get install < $DOTFILES/pkglist.txt
+xargs sudo apt-get install -y < $DOTFILES/pkglist.txt
 
 # Vim plugin manager (Vundle)
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
