@@ -321,6 +321,15 @@
       <command>google-chrome</command>
     </action>
   </keybind>
+  <keybind key="W-l">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>Lock</name>
+      </startupnotify>
+      <command>slock</command>
+    </action>
+  </keybind>
   <keybind key="W-e">
     <action name="Execute">
       <startupnotify>
