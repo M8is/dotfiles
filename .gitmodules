@@ -5,3 +5,4 @@
 [submodule "suckless/st"]
 	path = suckless/st
 	url = https://git.suckless.org/st
+	ignore = untracked
