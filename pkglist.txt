@@ -2,6 +2,7 @@ xorg
 xbindkeys
 xcompmgr
 xbacklight
+libxrandr-dev
 openbox
 zsh
 fonts-powerline
