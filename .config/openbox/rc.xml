@@ -301,7 +301,7 @@
         <enabled>yes</enabled>
         <name>Terminal</name>
       </startupnotify>
-      <command>st</command>
+      <command>st -g 148x52</command>
     </action>
   </keybind>
   <keybind key="W-a">
@@ -671,7 +671,7 @@
   <application name="st-256color">
     <desktop>1</desktop>
     <position force="yes">
-      <x>5</x>
+      <x>10</x>
       <y>center</y>
     </position>
   </application>  
