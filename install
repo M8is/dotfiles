@@ -31,6 +31,12 @@ ln -sfn "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
 # set global gitignore
 git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
 
+##########################################
+### Compile and install suckless tools ###
+##########################################
+pushd "$DOTFILES/suckless" > /dev/null
+sudo make install
+popd > /dev/null
 
 ###########################################
 ### Symlink dotfiles and create backups ###
