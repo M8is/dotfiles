@@ -298,9 +298,10 @@
   <keybind key="W-t">
     <action name="Execute">
       <startupnotify>
-        <enabled>no</enabled>
+        <enabled>yes</enabled>
+        <name>Terminal</name>
       </startupnotify>
-      <command>urxvt</command>
+      <command>st</command>
     </action>
   </keybind>
   <keybind key="W-a">
@@ -667,9 +668,12 @@
     <maximized>yes</maximized>
   </application>  
 
-  <application name="urxvt">
+  <application name="st-256color">
     <desktop>1</desktop>
-    <maximized>yes</maximized>
+    <position force="yes">
+      <x>5</x>
+      <y>center</y>
+    </position>
   </application>  
 
 </applications>
