@@ -2,3 +2,6 @@
 	path = suckless/slock
 	url = https://git.suckless.org/slock
 	ignore = untracked
+[submodule "suckless/st"]
+	path = suckless/st
+	url = https://git.suckless.org/st
