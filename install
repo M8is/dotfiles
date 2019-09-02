@@ -33,12 +33,16 @@ git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
 
 # Install brave-browser
 # https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux
-sudo apt install apt-transport-https curl
-curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
-sudo apt update
-sudo apt install brave-browser
-echo kernel.unprivileged_userns_clone = 1 | sudo tee /etc/sysctl.d/00-local-userns.conf
+if hash brave-browser 2>/dev/null; then
+  echo "brave-browser already installed."
+else
+  sudo apt install apt-transport-https curl
+  curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+  echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
+  sudo apt update
+  sudo apt install brave-browser
+  echo kernel.unprivileged_userns_clone = 1 | sudo tee /etc/sysctl.d/00-local-userns.conf
+fi
 
 ##########################################
 ### Compile and install suckless tools ###
