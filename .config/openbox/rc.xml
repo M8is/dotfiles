@@ -317,9 +317,9 @@
     <action name="Execute">
       <startupnotify>
         <enabled>true</enabled>
-        <name>Chrome</name>
+        <name>Browser</name>
       </startupnotify>
-      <command>google-chrome</command>
+      <command>brave-browser</command>
     </action>
   </keybind>
   <keybind key="W-l">
@@ -663,7 +663,7 @@
     <decor>no</decor>
   </application>
 
-  <application name="google-chrome">
+  <application name="brave-browser">
     <desktop>2</desktop>
     <maximized>yes</maximized>
   </application>  
