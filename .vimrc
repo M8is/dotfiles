@@ -42,3 +42,6 @@ highlight LineNr ctermfg=blue
 map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
 map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 
+" add supfolders to path (enables search in subfolders)
+set path+=**
+
