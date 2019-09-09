@@ -10,6 +10,9 @@ git
 vim
 ctags
 clang
+cmake
+python-dev
+python3-dev
 tmux
 rxvt-unicode
 conky

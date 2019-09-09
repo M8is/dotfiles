@@ -16,6 +16,32 @@ VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
 [ ! -d "$VUNDLE_DIR" ] && git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_DIR"
 echo | echo | vim +PluginInstall +qall &>/dev/null
 
+# YouCompleteMe C-family languages support
+YCM_BASE_DIR="$HOME/.vim/bundle/YouCompleteMe/"
+YCM_BUILD_BASE="$HOME/.ycm_build"
+[ ! -d "$YCM_BUILD_BASE" ] || rm -r "$YCM_BUILD_BASE"
+mkdir $YCM_BUILD_BASE
+pushd $YCM_BUILD_BASE >/dev/null
+
+YCM_D_BUILD_DIR="$YCM_BUILD_BASE/d"
+mkdir "$YCM_D_BUILD_DIR"
+cmake -G "Unix Makefiles" "$YCM_D_BUILD_DIR" "$YCM_BASE_DIR/third_party/ycmd/cpp"
+
+YCM_REGEX_BUILD_DIR="$YCM_BUILD_BASE/regex"
+YCM_REGEX_SOURCES_DIR="$YCM_BASE_DIR/third_party/cregex"
+if [ -d "$YCM_REGEX_SOURCES_DIR" ]; then
+  mkdir "$YCM_REGEX_BUILD_DIR"
+  cmake -G "Unix Makefiles" "$YCM_REGEX_BUILD_DIR" "$YCM_REGEX_SOURCES_DIR"
+  cmake --build "$YCM_REGEX_BUILD_DIR" --target _regex --config Release
+fi
+
+popd >/dev/null
+
+pushd "$YCM_BASE_DIR" >/dev/null
+python3 install.py --clang-completer
+popd >/dev/null
+
+
 # Tmux plugin Manager (tpm)
 TPM_DIR="$HOME/.tmux/plugins/tpm"
 [ ! -d "$TPM_DIR" ] && git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
