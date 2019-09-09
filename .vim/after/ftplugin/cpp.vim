@@ -30,3 +30,7 @@ map <leader>ma :make all<CR>
 " clean
 map <leader>mc :make clean all<CR>
 
+" move between methods using alt+shift+J/K
+nnoremap <M-J> /\v^(\w+\s+)?\w+::\w+\(.*\)
+nnoremap <M-K> ?\v^(\w+\s+)?\w+::\w+\(.*\)
+
