@@ -9,6 +9,7 @@ fonts-powerline
 git
 vim
 ctags
+clang
 tmux
 rxvt-unicode
 conky
