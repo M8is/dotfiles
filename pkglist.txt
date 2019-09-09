@@ -8,6 +8,7 @@ zsh
 fonts-powerline
 git
 vim
+ctags
 tmux
 rxvt-unicode
 conky

@@ -44,4 +44,13 @@ map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 
 " add supfolders to path (enables search in subfolders)
 set path+=**
+set wildmenu
+
+
+" create tag file
+command! MakeTags !ctags -R .
+" Shortcuts for tag jumping:
+" - ^] to jump to tag under cursor
+" - g^] for ambiguous tags
+" - ^t to jump back up the tag stack
 
