@@ -38,3 +38,7 @@ set relativenumber
 set numberwidth=4
 highlight LineNr ctermfg=blue
 
+" paste from clipboard and keep formatting
+map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
+map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
+
