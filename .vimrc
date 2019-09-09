@@ -1,37 +1,40 @@
-" VUNDLE SETUP {{{
-
-" set the runtime path to include Vundle and initialize
+" ===> Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
+" ===> Vundle end
 
-" }}}
+set t_Co=256    " set 256 colors
+set showmatch   " highlight matching surrounding elements
+syntax on       " enable syntax highlighting
+set autoread	  " read files changed outside vim
 
-" GENERAL {{{
+let mapleader=" "
 
-set t_Co=256            " set 256 colors
-set showmatch           " highlight matching surrounding elements
-syntax on               " enable syntax highlighting
 
-" }}}
+set gdefault	" default to global search
+set ignorecase	" ignore case by default
+set hlsearch	" highlight search results
 
-" KEYBINDINGS {{{
+" remove highlighting
+nnoremap <silent> <leader>, :noh<cr>
 
-" TODO
+" these options are overwritten by language specific settings
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
 
-" }}}
+" configure line numbers
+set number
+set relativenumber
+set numberwidth=4
+highlight LineNr ctermfg=blue
 
-" open this file with folded sections
-set modelines=1
-" vim:foldmethod=marker:foldlevel=0
