@@ -20,7 +20,7 @@ set showmatch
 set comments=sl:/*,mb:\ *,elx:\ */
 
 " switch between header/source
-map <leader>jh :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+map <leader>jh :w<CR>:e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 
 " recreate tags file
 map <leader>tc :!ctags -R ?c++-kinds=+p ?fields=+iaS ?extra=+q .<CR>
