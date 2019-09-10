@@ -1,8 +1,10 @@
 [submodule "suckless/slock"]
 	path = suckless/slock
-	url = https://git.suckless.org/slock
+	url = "git@github.com:M8is/slock.git"
+  branch = config
 	ignore = untracked
 [submodule "suckless/st"]
 	path = suckless/st
-	url = https://git.suckless.org/st
+	url = "git@github.com:M8is/st.git"
+  branch = config
 	ignore = untracked
