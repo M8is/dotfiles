@@ -6,7 +6,7 @@ set -e
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Install dependencies
-xargs sudo apt-get install -y < $DOTFILES/pkglist.txt
+xargs brew install < $DOTFILES/pkglist.txt
 
 # Switch default shell
 chsh -s /bin/zsh
@@ -56,26 +56,6 @@ ln -sfn "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
 
 # set global gitignore
 git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
-
-# Install brave-browser
-# https://brave-browser.readthedocs.io/en/latest/installing-brave.html#linux
-if hash brave-browser 2>/dev/null; then
-  echo "brave-browser already installed."
-else
-  sudo apt install apt-transport-https curl
-  curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-  echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ trusty main" | sudo tee /etc/apt/sources.list.d/brave-browser-release-trusty.list
-  sudo apt update
-  sudo apt install brave-browser
-  echo kernel.unprivileged_userns_clone = 1 | sudo tee /etc/sysctl.d/00-local-userns.conf
-fi
-
-##########################################
-### Compile and install suckless tools ###
-##########################################
-pushd "$DOTFILES/suckless" > /dev/null
-sudo make install
-popd > /dev/null
 
 ###########################################
 ### Symlink dotfiles and create backups ###

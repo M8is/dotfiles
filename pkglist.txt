@@ -1,9 +1,3 @@
-xorg
-xbindkeys
-xcompmgr
-xbacklight
-libxrandr-dev
-openbox
 zsh
 fonts-powerline
 git
@@ -14,9 +8,3 @@ cmake
 python-dev
 python3-dev
 tmux
-rxvt-unicode
-conky
-tint
-nitrogen
-alsa-utils
-rofi
