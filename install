@@ -8,6 +8,31 @@ DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Install dependencies
 xargs brew install < $DOTFILES/pkglist.txt
 
+###########################################
+### Symlink dotfiles and create backups ###
+###########################################
+pushd "$DOTFILES" > /dev/null
+
+BACKUP=${DOTFILES}_backup
+
+if [ -d $BACKUP ]; then 
+  echo "Skipping generating dotfiles: backup dir already exists!"
+else
+  git ls-files --exclude-standard | while read i ; do
+    if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == "pkglist.txt" ]] || [[ "$i" == `basename "$0"` ]]; then
+      continue
+    fi
+
+    if [ -f "$HOME/$i" ]; then
+      mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
+    fi
+  
+    mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
+  done
+fi
+
+popd > /dev/null
+
 # Switch default shell
 chsh -s /bin/zsh
 
@@ -56,28 +81,3 @@ ln -sfn "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
 
 # set global gitignore
 git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
-
-###########################################
-### Symlink dotfiles and create backups ###
-###########################################
-pushd "$DOTFILES" > /dev/null
-
-BACKUP=${DOTFILES}_backup
-
-if [ -d $BACKUP ]; then 
-  echo "Skipping generating dotfiles: backup dir already exists!"
-else
-  git ls-files --exclude-standard | while read i ; do
-    if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == "pkglist.txt" ]] || [[ "$i" == `basename "$0"` ]]; then
-      continue
-    fi
-
-    if [ -f "$HOME/$i" ]; then
-      mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
-    fi
-  
-    mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
-  done
-fi
-
-popd > /dev/null
