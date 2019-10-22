@@ -19,22 +19,23 @@ if [ -d $BACKUP ]; then
   echo "Skipping generating dotfiles: backup dir already exists!"
 else
   git ls-files --exclude-standard | while read i ; do
-    if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == "pkglist.txt" ]] || [[ "$i" == `basename "$0"` ]]; then
+    if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == "pkglist.txt" ]] || [[ "$i" == ".gitmodules" ]] || [[ "$i" == `basename "$0"` ]]; then
       continue
     fi
 
     if [ -f "$HOME/$i" ]; then
-      mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
+      mkdir -p "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
     fi
   
-    mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
+    mkdir -p "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
   done
 fi
 
 popd > /dev/null
 
+
 # Switch default shell
-chsh -s /bin/zsh
+[[ $(dscl . -read ~/ UserShell | sed 's/UserShell: //') == "/bin/zsh" ]] || chsh -s /bin/zsh
 
 # Vim plugin manager (Vundle)
 VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
