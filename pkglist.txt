@@ -3,6 +3,11 @@ xbindkeys
 xcompmgr
 xbacklight
 libxrandr-dev
+libxinerama-dev
+libfontconfig1-dev
+libx11-dev
+libxft-dev
+libncurses5-dev
 openbox
 zsh
 fonts-powerline
