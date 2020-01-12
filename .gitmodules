@@ -10,7 +10,11 @@
 	ignore = untracked
 [submodule "suckless/dmenu"]
 	path = suckless/dmenu
-	url = https://git.suckless.org/dmenu
+	url = "git@github.com:M8is/st.git"
+  branch = config
+  ignore = untracked
 [submodule "suckless/dwm"]
 	path = suckless/dwm
-	url = git@github.com:M8is/dwm.git
+	url = "git@github.com:M8is/st.git"
+  branch = config
+  ignore = untracked
