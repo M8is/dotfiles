@@ -340,6 +340,15 @@
       <command>nautilus</command>
     </action>
   </keybind>
+  <keybind key="W-m">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>Mail</name>
+      </startupnotify>
+      <command>thunderbird</command>
+    </action>
+  </keybind>
 </keyboard>
 
 <mouse>
@@ -674,6 +683,11 @@
       <x>10</x>
       <y>center</y>
     </position>
+  </application>  
+
+  <application name="thunderbird">
+    <desktop>3</desktop>
+    <maximized>yes</maximized>
   </application>  
 
 </applications>
