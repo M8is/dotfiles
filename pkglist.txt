@@ -27,3 +27,5 @@ tint
 nitrogen
 alsa-utils
 rofi
+thunderbird
+keepass2

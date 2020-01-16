@@ -349,6 +349,15 @@
       <command>thunderbird</command>
     </action>
   </keybind>
+  <keybind key="W-k">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>KeePass2</name>
+      </startupnotify>
+      <command>keepass2</command>
+    </action>
+  </keybind>
 </keyboard>
 
 <mouse>
@@ -688,6 +697,10 @@
   <application name="thunderbird">
     <desktop>3</desktop>
     <maximized>yes</maximized>
+  </application>  
+
+  <application name="keepass2">
+    <desktop>3</desktop>
   </application>  
 
 </applications>
