@@ -358,6 +358,15 @@
       <command>keepass2</command>
     </action>
   </keybind>
+  <keybind key="W-v">
+    <action name="Execute">
+      <startupnotify>
+        <enabled>true</enabled>
+        <name>OpenVPN</name>
+      </startupnotify>
+      <command>openvpn</command>
+    </action>
+  </keybind>
 </keyboard>
 
 <mouse>
@@ -700,6 +709,10 @@
   </application>  
 
   <application name="keepass2">
+    <desktop>3</desktop>
+  </application>  
+
+  <application name="openvpn">
     <desktop>3</desktop>
   </application>  
 
