@@ -31,3 +31,6 @@ firefox-esr
 thunderbird
 keepass2
 openvpn
+nemo
+nomacs
+okular
