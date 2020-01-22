@@ -23,6 +23,7 @@ python3-dev
 tmux
 rxvt-unicode
 conky
+tint2
 tint
 nitrogen
 alsa-utils
