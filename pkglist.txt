@@ -31,6 +31,6 @@ firefox-esr
 thunderbird
 keepass2
 openvpn
-nemo
+nautilus
 nomacs
 okular
