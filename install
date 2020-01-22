@@ -5,6 +5,12 @@ set -e
 # Find dotfiles dir
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+# Add non-free package repositories
+if ! sudo grep -q "non-free" "/etc/apt/sources.list"; then
+  echo "Missing requirement: add non-free repositories in /etc/apt/sources.list"
+  exit 1
+fi
+
 # Install dependencies
 xargs sudo apt-get install -y < $DOTFILES/pkglist.txt
 
