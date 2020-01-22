@@ -699,7 +699,7 @@
     <desktop>1</desktop>
     <position force="yes">
       <x>10</x>
-      <y>center</y>
+      <y>10</y>
     </position>
   </application>  
 
