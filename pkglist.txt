@@ -1,6 +1,6 @@
 xorg
 xbindkeys
-xcompmgr
+compton
 xbacklight
 libxrandr-dev
 libxinerama-dev
