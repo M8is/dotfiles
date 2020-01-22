@@ -27,6 +27,7 @@ tint
 nitrogen
 alsa-utils
 rofi
+firefox-esr
 thunderbird
 keepass2
 openvpn
