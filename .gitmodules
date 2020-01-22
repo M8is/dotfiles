@@ -8,18 +8,3 @@
 	url = "git@github.com:M8is/st.git"
   branch = config
 	ignore = untracked
-[submodule "suckless/dmenu"]
-	path = suckless/dmenu
-	url = "git@github.com:M8is/st.git"
-  branch = config
-  ignore = untracked
-[submodule "suckless/dwm"]
-	path = suckless/dwm
-	url = "git@github.com:M8is/st.git"
-  branch = config
-  ignore = untracked
-[submodule "suckless/surf"]
-	path = suckless/surf
-	url = "git@github.com:M8is/surf.git"
-  branch = config
-  ignore = untracked
