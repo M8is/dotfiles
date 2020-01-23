@@ -15,7 +15,7 @@ openbox
 zsh
 fonts-powerline
 git
-vim
+vim-nox
 ctags
 clang
 cmake
