@@ -301,7 +301,7 @@
         <enabled>yes</enabled>
         <name>Terminal</name>
       </startupnotify>
-      <command>st -g 148x52</command>
+      <command>st -g 148x50</command>
     </action>
   </keybind>
   <keybind key="W-a">
