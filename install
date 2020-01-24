@@ -14,6 +14,22 @@ fi
 # Install dependencies
 xargs sudo apt-get install -y < $DOTFILES/pkglist.txt
 
+# Enable tap-to-click
+LIBINPUT_DIR=/etc/X11/xorg.conf.d
+LIBINPUT_CONF=${LIBINPUT_DIR}/40-libinput.conf
+[ ! -f "$LIBINPUT_CONF" ] && sudo mkdir -p "$LIBINPUT_DIR" && sudo touch "$LIBINPUT_CONF"
+if ! sudo grep -q 'Section "InputClass"' "$LIBINPUT_CONF"; then
+echo '
+Section "InputClass"
+  Identifier "libinput touchpad catchall"
+  MatchIsTouchpad "on"
+  MatchDevicePath "/dev/input/event*"
+  Driver "libinput"
+  Option "Tapping" "on"
+EndSection
+' | sudo tee -a "$LIBINPUT_CONF" > /dev/null
+fi
+
 ###########################################
 ### Symlink dotfiles and create backups ###
 ###########################################

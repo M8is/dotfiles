@@ -3,6 +3,7 @@ xorg
 xbindkeys
 compton
 xbacklight
+xserver-xorg-input-libinput
 libxrandr-dev
 libxinerama-dev
 libfontconfig1-dev
