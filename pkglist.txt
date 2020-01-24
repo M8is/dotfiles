@@ -12,6 +12,7 @@ libxft-dev
 libncurses5-dev
 libwebkit2gtk-4.0-dev
 libgcr-3-dev
+pavucontrol
 openbox
 zsh
 fonts-powerline
