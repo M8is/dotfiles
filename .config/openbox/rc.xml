@@ -690,7 +690,7 @@
     <decor>no</decor>
   </application>
 
-  <application name="firefox">
+  <application class="Firefox-esr">
     <desktop>2</desktop>
     <maximized>yes</maximized>
   </application>  
