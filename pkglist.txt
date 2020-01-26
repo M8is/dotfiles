@@ -13,7 +13,6 @@ libncurses5-dev
 libwebkit2gtk-4.0-dev
 libgcr-3-dev
 pavucontrol
-openbox
 zsh
 fonts-powerline
 git
@@ -24,10 +23,6 @@ cmake
 python-dev
 python3-dev
 tmux
-rxvt-unicode
-conky
-tint2
-tint
 nitrogen
 alsa-utils
 rofi
