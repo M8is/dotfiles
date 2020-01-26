@@ -1,4 +1,11 @@
+
+# VPN helpers
 VPN_NAME='openvpn-cqse'
 CONF_FILE='/home/mattis/config.ovpn'
 alias vpn='sudo openvpn --config "$CONF_FILE" --daemon ${VPN_NAME}'
 alias vpn-log-read='sudo grep ${VPN_NAME} /var/log/syslog'
+
+# Monitor helpers
+alias hdmi-above='xrandr --output HDMI-1 --above eDP-1'
+alias hdmi-same='xrandr --output HDMI-1 --same-as eDP-1'
+
