@@ -7,5 +7,7 @@ alias vpn-log-read='sudo grep ${VPN_NAME} /var/log/syslog'
 
 # Monitor helpers
 alias hdmi-above='xrandr --output HDMI-1 --above eDP-1'
+alias hdmi-right='xrandr --output HDMI-1 --right-of eDP-1'
+alias hdmi-left='xrandr --output HDMI-1 --left-of eDP-1'
 alias hdmi-same='xrandr --output HDMI-1 --same-as eDP-1'
 
