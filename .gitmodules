@@ -1,16 +1,15 @@
 [submodule "suckless/slock"]
 	path = suckless/slock
-	url = "git@github.com:M8is/slock.git"
-	ignore = untracked
+	url = git@github.com:M8is/slock.git
 [submodule "suckless/st"]
 	path = suckless/st
-	url = "git@github.com:M8is/st.git"
-	ignore = untracked
+	url = git@github.com:M8is/st.git
 [submodule "suckless/dwm"]
 	path = suckless/dwm
-	url = "git@github.com:M8is/dwm.git"
-	ignore = untracked
+	url = git@github.com:M8is/dwm.git
 [submodule "suckless/dmenu"]
 	path = suckless/dmenu
-	url = "git@github.com:M8is/dmenu.git"
-	ignore = untracked
+	url = git@github.com:M8is/dmenu.git
+[submodule "suckless/slstatus"]
+	path = suckless/slstatus
+	url = git@github.com:M8is/slstatus.git
