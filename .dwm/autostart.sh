@@ -10,3 +10,7 @@ fi
 if which feh >/dev/null 2>&1; then
   [ -f ${HOME}/.fehbg ] && ${HOME}/.fehbg &
 fi
+
+# set statusbar
+slstatus &
+
