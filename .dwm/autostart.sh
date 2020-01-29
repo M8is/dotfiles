@@ -7,6 +7,6 @@ if which compton >/dev/null 2>&1; then
 fi
 
 # restore wallpaper
-if which nitrogen >/dev/null 2>&1; then
-  nitrogen --restore &
+if which feh >/dev/null 2>&1; then
+  [ -f ${HOME}/.fehbg ] && ${HOME}/.fehbg &
 fi

@@ -8,6 +8,7 @@ libxrandr-dev
 libxinerama-dev
 libfontconfig1-dev
 libx11-dev
+x11-xserver-utils
 libxft-dev
 libncurses5-dev
 libwebkit2gtk-4.0-dev
@@ -23,7 +24,7 @@ cmake
 python-dev
 python3-dev
 tmux
-nitrogen
+feh
 alsa-utils
 rofi
 firefox-esr
