@@ -7,6 +7,9 @@ export PATH="$PATH:$HOME/.local/bin"
 # add sbin
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
 
+# set vim as default editor
+export EDITOR=vim
+
 # enable vi mode
 bindkey -v
 export KEYTIMEOUT=1
