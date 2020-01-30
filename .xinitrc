@@ -6,7 +6,11 @@ setxkbmap -layout us,de -option grp:shifts_toggle -option grp_led:caps -option c
 # bind keys using Xbindkeys
 xbindkeys
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+# restore wallpaper
+${HOME}/.fehbg &
+
+# set statusbar
+slstatus &
 
 # start window manager
 exec dwm
