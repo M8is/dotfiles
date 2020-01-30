@@ -1,4 +1,5 @@
 firmware-iwlwifi
+bumblebee
 xorg
 xbindkeys
 compton
