@@ -20,6 +20,8 @@ set autoread	  " read files changed outside vim
 
 let mapleader=" "
 
+" save current buffer as root
+cmap w!! w !sudo tee > /dev/null %
 
 set gdefault	" default to global search
 set ignorecase	" ignore case by default
