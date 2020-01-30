@@ -10,6 +10,9 @@ export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
 # set vim as default editor
 export EDITOR=vim
 
+# try to fix misbehaving Java applications
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # enable vi mode
 bindkey -v
 export KEYTIMEOUT=1
