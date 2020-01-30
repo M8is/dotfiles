@@ -2,7 +2,6 @@ firmware-iwlwifi
 bumblebee
 xorg
 xbindkeys
-compton
 xbacklight
 xserver-xorg-input-libinput
 libxrandr-dev
