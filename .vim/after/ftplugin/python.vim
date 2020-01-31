@@ -7,3 +7,5 @@ setlocal autoindent
 setlocal smarttab
 setlocal formatoptions=croql
 
+nmap <silent> <leader>d <Plug>(pydocstring)
+
