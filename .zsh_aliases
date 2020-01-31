@@ -1,4 +1,8 @@
 
+# use neovim
+alias vim=nvim
+alias v=nvim
+
 # VPN helpers
 VPN_NAME='openvpn-cqse'
 CONF_FILE='/home/mattis/config.ovpn'
