@@ -20,6 +20,9 @@ set autoread	  " read files changed outside vim
 
 let mapleader=" "
 
+" save buffer using leader key
+nnoremap <leader>w :w<cr>
+
 " save current buffer as root
 cmap w!! w !sudo tee > /dev/null %
 
