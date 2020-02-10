@@ -6,8 +6,13 @@ alias vpn-log-read='sudo tail -f -n 100 /var/log/syslog | grep ${VPN_NAME}'
 alias vpn='sudo openvpn --config "$CONF_FILE" --daemon ${VPN_NAME} && vpn-log-read'
 
 # Monitor helpers
-alias hdmi-above='xrandr --output HDMI-1 --above eDP-1'
-alias hdmi-right='xrandr --output HDMI-1 --right-of eDP-1'
-alias hdmi-left='xrandr --output HDMI-1 --left-of eDP-1'
-alias hdmi-same='xrandr --output HDMI-1 --same-as eDP-1'
+PRIMARY_OUT=$(xrandr | awk '/ connected/{i++}i==1{print $1; exit}')
+SECONDARY_OUT=$(xrandr | awk '/ connected/{i++}i==2{print $1; exit}')
+alias hdmi-above="xrandr --output $SECONDARY_OUT --above $PRIMARY_OUT"
+alias hdmi-right="xrandr --output $SECONDARY_OUT --right-of $PRIMARY_OUT"
+alias hdmi-left="xrandr --output $SECONDARY_OUT --left-of $PRIMARY_OUT"
+alias hdmi-same="xrandr --output $SECONDARY_OUT --same-as $PRIMARY_OUT"
+
+# screenshot
+alias screenshot='xwd | convert - capture.png'
 
