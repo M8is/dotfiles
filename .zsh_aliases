@@ -23,5 +23,5 @@ function hdmi-wide {
 }
 
 # screenshot
-alias screenshot='xwd | convert - capture.png'
+alias screenshot='xwd | convert xwd:- capture.png'
 
