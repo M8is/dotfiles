@@ -10,8 +10,11 @@ setlocal formatoptions=croql
 nmap <silent> <leader>d <Plug>(pydocstring)
 
 function! Format()
-  silent execute "!PYTHONPATH=~/yapf python3 ~/yapf/yapf -i " . bufname("%")
+  execute "!yapf -i " . bufname("%")
 endfunction
  
-autocmd BufWritePost <buffer> :call Format()
+augroup auto_format
+  autocmd!
+  autocmd BufWritePost <buffer> :call Format()
+augroup END
 
