@@ -25,6 +25,9 @@ let mapleader=" "
 " save buffer using leader key
 nnoremap <leader>w :w<cr>
 
+" switch to previous buffer
+nnoremap <leader><leader> :e#<cr>
+
 " save current buffer as root
 cmap w!! w !sudo tee > /dev/null %
 
