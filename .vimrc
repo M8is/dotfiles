@@ -9,6 +9,8 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'Valloric/YouCompleteMe'
 
+Plugin 'heavenshell/vim-pydocstring'
+
 call vundle#end()
 filetype plugin indent on
 " ===> Vundle end
