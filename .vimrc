@@ -59,6 +59,11 @@ set path+=**
 set wildmenu
 
 
+" YCM configuration
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+
 " create tag file
 command! MakeTags !ctags -R .
 " Shortcuts for tag jumping:
