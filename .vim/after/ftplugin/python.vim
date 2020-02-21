@@ -14,7 +14,7 @@ function! Format()
 endfunction
  
 augroup auto_format
-  autocmd!
-  autocmd BufWritePost <buffer> :call Format()
+  autocmd! <buffer>
+  autocmd BufWritePost *.py :call Format()
 augroup END
 
