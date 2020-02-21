@@ -1,23 +1,42 @@
-" ===> Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" auto-install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-Plugin 'VundleVim/Vundle.vim'
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" GUI enhancements
+Plug 'itchyny/lightline.vim'
+Plug 'andymass/vim-matchup'
 
-Plugin 'Valloric/YouCompleteMe'
+Plug 'heavenshell/vim-pydocstring'
 
-Plugin 'heavenshell/vim-pydocstring'
+" Fuzzy file finder
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-call vundle#end()
-filetype plugin indent on
-" ===> Vundle end
+" Semantic language support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Syntactic language support
+Plug 'cespare/vim-toml'
+Plug 'stephpy/vim-yaml'
+Plug 'rust-lang/rust.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+" Initialize plugin system
+call plug#end()
 
 set t_Co=256    " set 256 colors
 set showmatch   " highlight matching surrounding elements
-syntax on       " enable syntax highlighting
 set autoread	  " read files changed outside vim
 
 let mapleader=" "
@@ -34,6 +53,17 @@ cmap w!! w !sudo tee > /dev/null %
 set gdefault	" default to global search
 set ignorecase	" ignore case by default
 set hlsearch	" highlight search results
+
+" Lightline
+" let g:lightline = { 'colorscheme': 'wombat' }
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+\ }
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
 
 " remove highlighting
 nnoremap <silent> <leader>, :noh<cr>
@@ -58,16 +88,9 @@ map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
 set path+=**
 set wildmenu
 
-
-" YCM configuration
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-
 " create tag file
 command! MakeTags !ctags -R .
 " Shortcuts for tag jumping:
 " - ^] to jump to tag under cursor
 " - g^] for ambiguous tags
 " - ^t to jump back up the tag stack
-
