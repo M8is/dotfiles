@@ -14,10 +14,13 @@ fi
 # Install dependencies
 xargs sudo apt-get install -y < $DOTFILES/pkglist.txt
 
+# Set xorg conf dir
+XORG_CONF_DIR=/etc/X11/xorg.conf.d
+[ ! -d "$XORG_CONF_DIR" ] && sudo mkdir -p "$XORG_CONF_DIR"
+
 # Enable tap-to-click
-LIBINPUT_DIR=/etc/X11/xorg.conf.d
-LIBINPUT_CONF=${LIBINPUT_DIR}/40-libinput.conf
-[ ! -f "$LIBINPUT_CONF" ] && sudo mkdir -p "$LIBINPUT_DIR" && sudo touch "$LIBINPUT_CONF"
+LIBINPUT_CONF=${XORG_CONF_DIR}/40-libinput.conf
+[ ! -f "$LIBINPUT_CONF" ] && sudo touch "$LIBINPUT_CONF"
 if ! sudo grep -q 'Section "InputClass"' "$LIBINPUT_CONF"; then
 echo '
 Section "InputClass"
@@ -28,6 +31,19 @@ Section "InputClass"
   Option "Tapping" "on"
 EndSection
 ' | sudo tee -a "$LIBINPUT_CONF" > /dev/null
+fi
+# Set keyboard config
+KEYBOARD_CONF=${XORG_CONF_DIR}/00-keyboard.conf
+[ ! -f "$KEYBOARD_CONF" ]  && sudo touch "$KEYBOARD_CONF"
+if ! sudo grep -q 'Section "InputClass"' "$KEYBOARD_CONF"; then
+echo '
+Section "InputClass"
+  Identifier "system-keyboard"
+  MatchIsKeyboard "on"
+  Option "XkbLayout" "us,de"
+  Option "XkbOptions" "grp:shifts_toggle,grp_led:caps,caps:escape"
+EndSection
+' | sudo tee -a "$KEYBOARD_CONF" > /dev/null
 fi
 
 ###########################################
