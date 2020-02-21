@@ -7,6 +7,9 @@ export PATH="$PATH:$HOME/.local/bin"
 # add sbin
 export PATH="$PATH:/sbin:/usr/sbin:/usr/local/sbin"
 
+# add cargo
+[ -d "$HOME/.cargo/bin" ] && export PATH="$PATH:$HOME/.cargo/bin"
+
 # set vim as default editor
 export EDITOR=vim
 
