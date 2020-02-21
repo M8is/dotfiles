@@ -23,6 +23,7 @@ clang
 cmake
 python-dev
 python3-dev
+ripgrep
 tmux
 feh
 alsa-utils
