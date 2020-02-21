@@ -43,3 +43,5 @@ setopt hist_ignore_space
 if [ -z "$TMUX" ]; then
       tmux attach -t default || tmux new -s default
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
