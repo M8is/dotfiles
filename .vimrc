@@ -39,6 +39,11 @@ set t_Co=256    " set 256 colors
 set showmatch   " highlight matching surrounding elements
 set autoread	  " read files changed outside vim
 
+" Lightline config
+set laststatus=2
+let g:lightline = { 'colorscheme': 'nord' }
+
+
 let mapleader=" "
 
 " save buffer using leader key
