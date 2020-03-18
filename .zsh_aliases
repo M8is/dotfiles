@@ -25,3 +25,6 @@ function hdmi-wide {
 # screenshot
 alias screenshot='xwd | convert xwd:- capture.png'
 
+# find and edit file
+alias vf='vim $(fzf)'
+

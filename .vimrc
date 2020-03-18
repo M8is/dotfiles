@@ -18,7 +18,7 @@ Plug 'heavenshell/vim-pydocstring'
 
 " Fuzzy file finder
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()} }
 Plug 'junegunn/fzf.vim'
 
 " Semantic language support
@@ -43,14 +43,19 @@ set autoread	  " read files changed outside vim
 set laststatus=2
 let g:lightline = { 'colorscheme': 'nord' }
 
+" Transparent left-most column (only sometimes shown)
+highlight clear SignColumn
 
 let mapleader=" "
 
-" save buffer using leader key
-nnoremap <leader>w :w<cr>
-
 " switch to previous buffer
 nnoremap <leader><leader> :e#<cr>
+
+" search with fzf
+nnoremap <leader>o :Files .<cr>
+
+" save buffer using leader key
+nnoremap <leader>w :w<cr>
 
 " save current buffer as root
 cmap w!! w !sudo tee > /dev/null %
@@ -60,7 +65,6 @@ set ignorecase	" ignore case by default
 set hlsearch	" highlight search results
 
 " Lightline
-" let g:lightline = { 'colorscheme': 'wombat' }
 let g:lightline = {
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
