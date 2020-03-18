@@ -10,6 +10,9 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Colorscheme
+Plug 'chriskempson/base16-vim'
+
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
 Plug 'andymass/vim-matchup'
@@ -18,7 +21,7 @@ Plug 'heavenshell/vim-pydocstring'
 
 " Fuzzy file finder
 Plug 'airblade/vim-rooter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()} }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Semantic language support
@@ -38,10 +41,11 @@ call plug#end()
 set t_Co=256    " set 256 colors
 set showmatch   " highlight matching surrounding elements
 set autoread	  " read files changed outside vim
+set background=light
+colorscheme base16-solarized-light
+let g:lightline = { 'colorscheme': 'solarized' }
 
-" Lightline config
-set laststatus=2
-let g:lightline = { 'colorscheme': 'nord' }
+set laststatus=2 " necessary to show lightline
 
 " Transparent left-most column (only sometimes shown)
 highlight clear SignColumn
@@ -63,16 +67,6 @@ cmap w!! w !sudo tee > /dev/null %
 set gdefault	" default to global search
 set ignorecase	" ignore case by default
 set hlsearch	" highlight search results
-
-" Lightline
-let g:lightline = {
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \ },
-\ }
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
 
 " remove highlighting
 nnoremap <silent> <leader>, :noh<cr>
