@@ -3,11 +3,11 @@
 # bind keys using Xbindkeys
 xbindkeys
 
-# restore wallpaper
-${HOME}/.fehbg &
-
 # set statusbar
 slstatus &
+
+# load Xresources
+xrdb -merge ~/.Xresources
 
 # start window manager
 exec dwm

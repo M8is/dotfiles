@@ -5,18 +5,26 @@ set -e
 # Find dotfiles dir
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Add non-free package repositories
-if ! sudo grep -q "non-free" "/etc/apt/sources.list"; then
-  echo "Missing requirement: add non-free repositories in /etc/apt/sources.list"
-  exit 1
-fi
-
 # Install dependencies
-xargs sudo apt-get install -y < $DOTFILES/pkglist.txt
+# TODO
 
 # Set xorg conf dir
 XORG_CONF_DIR=/etc/X11/xorg.conf.d
 [ ! -d "$XORG_CONF_DIR" ] && sudo mkdir -p "$XORG_CONF_DIR"
+
+# Set keyboard config
+KEYBOARD_CONF=${XORG_CONF_DIR}/00-keyboard.conf
+[ ! -f "$KEYBOARD_CONF" ]  && sudo touch "$KEYBOARD_CONF"
+if ! sudo grep -q 'Section "InputClass"' "$KEYBOARD_CONF"; then
+echo '
+Section "InputClass"
+  Identifier "system-keyboard"
+  MatchIsKeyboard "on"
+  Option "XkbLayout" "us,de"
+  Option "XkbOptions" "grp:shifts_toggle,grp_led:caps,caps:escape"
+EndSection
+' | sudo tee -a "$KEYBOARD_CONF" > /dev/null
+fi
 
 # Enable tap-to-click
 LIBINPUT_CONF=${XORG_CONF_DIR}/40-libinput.conf
@@ -32,98 +40,44 @@ Section "InputClass"
 EndSection
 ' | sudo tee -a "$LIBINPUT_CONF" > /dev/null
 fi
-# Set keyboard config
-KEYBOARD_CONF=${XORG_CONF_DIR}/00-keyboard.conf
-[ ! -f "$KEYBOARD_CONF" ]  && sudo touch "$KEYBOARD_CONF"
-if ! sudo grep -q 'Section "InputClass"' "$KEYBOARD_CONF"; then
-echo '
-Section "InputClass"
-  Identifier "system-keyboard"
-  MatchIsKeyboard "on"
-  Option "XkbLayout" "us,de"
-  Option "XkbOptions" "grp:shifts_toggle,grp_led:caps,caps:escape"
-EndSection
-' | sudo tee -a "$KEYBOARD_CONF" > /dev/null
-fi
 
 ###########################################
 ### Symlink dotfiles and create backups ###
 ###########################################
-pushd "$DOTFILES" > /dev/null
+CONFIG_DIR="$DOTFILES/home"
+pushd "$CONFIG_DIR" > /dev/null
 
-BACKUP=${DOTFILES}_backup
+find -type f | sed -n 's|^./||p' | while read i ; do
+  SOURCE="$CONFIG_DIR/$i"
+  TARGET="$HOME/$i"
 
-if [ -d $BACKUP ]; then 
-  echo "Skipping generating dotfiles: backup dir already exists!"
-else
-  git ls-files --exclude-standard | while read i ; do
-    if [[ "$i" == "README.md" ]] || [[ "$i" == "LICENSE" ]] || [[ "$i" == "pkglist.txt" ]] || [[ "$i" == `basename "$0"` ]]; then
-      continue
-    fi
+  if [[ -e "$TARGET" || -h "$TARGET" ]]; then
+    echo "Skipping linking $i: $TARGET already exists."
+    continue
+  fi
 
-    if [ -f "$HOME/$i" ]; then
-      mkdir --parents "$(dirname "$BACKUP/$i")"; mv "$HOME/$i" $_
-    fi
-  
-    mkdir --parents "$(dirname "$HOME/$i")"; ln -s "$DOTFILES/$i" "$HOME/$i"
-  done
-fi
+  echo "Linking $i"
+  mkdir --parents "$(dirname "$TARGET")"
+  ln -s "$SOURCE" $TARGET
+done
 
 popd > /dev/null
-
-# Switch default shell
-chsh -s /bin/zsh
-
-# Vim plugin manager (Vundle)
-VUNDLE_DIR="$HOME/.vim/bundle/Vundle.vim"
-[ ! -d "$VUNDLE_DIR" ] && git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_DIR"
-echo | echo | vim +PluginInstall +qall &>/dev/null
-
-# YouCompleteMe C-family languages support
-YCM_BASE_DIR="$HOME/.vim/bundle/YouCompleteMe/"
-YCM_BUILD_BASE="$HOME/.ycm_build"
-[ ! -d "$YCM_BUILD_BASE" ] || rm -r "$YCM_BUILD_BASE"
-mkdir $YCM_BUILD_BASE
-pushd $YCM_BUILD_BASE >/dev/null
-
-YCM_D_BUILD_DIR="$YCM_BUILD_BASE/d"
-mkdir "$YCM_D_BUILD_DIR"
-cmake -G "Unix Makefiles" "$YCM_D_BUILD_DIR" "$YCM_BASE_DIR/third_party/ycmd/cpp"
-
-YCM_REGEX_BUILD_DIR="$YCM_BUILD_BASE/regex"
-YCM_REGEX_SOURCES_DIR="$YCM_BASE_DIR/third_party/cregex"
-if [ -d "$YCM_REGEX_SOURCES_DIR" ]; then
-  mkdir "$YCM_REGEX_BUILD_DIR"
-  cmake -G "Unix Makefiles" "$YCM_REGEX_BUILD_DIR" "$YCM_REGEX_SOURCES_DIR"
-  cmake --build "$YCM_REGEX_BUILD_DIR" --target _regex --config Release
-fi
-
-popd >/dev/null
-
-pushd "$YCM_BASE_DIR" >/dev/null
-python3 install.py --clang-completer
-popd >/dev/null
-
 
 # Tmux plugin Manager (tpm)
 TPM_DIR="$HOME/.tmux/plugins/tpm"
-[ ! -d "$TPM_DIR" ] && git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
-$HOME/.tmux/plugins/tpm/bin/install_plugins
+if [ ! -d "$TPM_DIR" ]; then
+  git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+  $HOME/.tmux/plugins/tpm/bin/install_plugins
+fi
 
 # Pure zsh prompt
 PURE_DIR="$HOME/.pure_prompt"
-[ ! -d "$PURE_DIR" ] && git clone https://github.com/sindresorhus/pure.git "$PURE_DIR"
-mkdir -p $HOME/.zfunctions
-ln -sfn "$PURE_DIR/pure.zsh" $HOME/.zfunctions/prompt_pure_setup
-ln -sfn "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
+if [ ! -d "$PURE_DIR" ]; then
+  git clone https://github.com/sindresorhus/pure.git "$PURE_DIR"
+  mkdir -p $HOME/.zfunctions
+  ln -sfn "$PURE_DIR/pure.zsh" $HOME/.zfunctions/prompt_pure_setup
+  ln -sfn "$PURE_DIR/async.zsh" $HOME/.zfunctions/async
+fi
 
 # set global gitignore
 git config --global core.excludesfile "$DOTFILES/.config/git/gitignore_global"
-
-
-##########################################
-### Compile and install suckless tools ###
-##########################################
-pushd "$DOTFILES/suckless" > /dev/null
-sudo make install
-popd > /dev/null

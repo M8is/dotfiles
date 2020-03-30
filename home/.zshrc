@@ -29,6 +29,9 @@ setopt COMPLETE_ALIASES
 autoload -U promptinit; promptinit
 prompt pure
 
+# load fzf config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # setup history
 export HISTSIZE=2000
 export HISTFILE="$HOME/.zsh_history"
@@ -39,9 +42,3 @@ setopt hist_ignore_space
 
 # setup aliases
 . ~/.zsh_aliases
-
-if [ -z "$TMUX" ]; then
-      tmux attach -t default || tmux new -s default
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
