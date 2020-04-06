@@ -13,3 +13,4 @@ powerline-fonts
 ttf-liberation
 nodejs
 npm
+feh
