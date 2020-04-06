@@ -13,4 +13,6 @@ powerline-fonts
 ttf-liberation
 nodejs
 npm
+alsa-utils
+xbindkeys
 feh
