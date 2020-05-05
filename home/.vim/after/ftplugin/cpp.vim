@@ -34,3 +34,9 @@ map <leader>mc :make clean all<CR>
 nnoremap <M-J> /\v^(\w+\s+)?\w+::\w+\(.*\)
 nnoremap <M-K> ?\v^(\w+\s+)?\w+::\w+\(.*\)
 
+" Enable auto formatting
+ClangFormatAutoEnable
+
+" Toggle auto formatting
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+
