@@ -1,22 +1,3 @@
-
-# VPN helpers
-alias vpn='openvpn --config "$HOME/config.ovpn"'
-
-# Monitor helpers
-PRIMARY_OUT=$(xrandr | awk '/ connected/{i++}i==1{print $1; exit}')
-SECONDARY_OUT=$(xrandr | awk '/ connected/{i++}i==2{print $1; exit}')
-
-ALL_OUT_ARGS="--dpi 276"
-PRIMARY_OUT_ARGS="--output $PRIMARY_OUT --auto"
-SECONDARY_OUT_ARGS="--output $SECONDARY_OUT --auto --scale 2x2"
-
-XRANDR="xrandr $ALL_OUT_ARGS"
-alias hdmi-above="$XRANDR $SECONDARY_OUT_ARGS --above $PRIMARY_OUT"
-alias hdmi-right="$XRANDR $SECONDARY_OUT_ARGS --right-of $PRIMARY_OUT"
-alias hdmi-left="$XRANDR $SECONDARY_OUT_ARGS --left-of $PRIMARY_OUT"
-alias hdmi-same="$XRANDR $SECONDARY_OUT_ARGS --same-as $PRIMARY_OUT"
-alias hdmi-secondary-only="$XRANDR $SECONDARY_OUT_ARGS --primary --output $PRIMARY_OUT --off"
-
 # screenshot
 alias screenshot='xwd | convert xwd:- capture.png'
 
