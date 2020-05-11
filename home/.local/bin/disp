@@ -1,34 +1,27 @@
 #!/bin/bash
 
-OPTIONS="above, right, left, same, first, second"
+OPTIONS="above, same, first, second"
 USAGE="$(basename "$0") {$OPTIONS}"
 
 DISP_PRIMARY=$(xrandr | awk '/ connected/{i++}i==1{print $1; exit}')
 DISP_SECONDARY=$(xrandr | awk '/ connected/{i++}i==2{print $1; exit}')
 
-ALL_OUT_ARGS="--dpi 276"
-PRIMARY_OUT_ARGS="--output $DISP_PRIMARY --auto"
-SECONDARY_OUT_ARGS="--output $DISP_SECONDARY --mode 3840x1080 --scale 2x2"
+PRIMARY_OUT_ARGS="--dpi 276 --output $DISP_PRIMARY --auto"
+SECONDARY_OUT_ARGS="--output $DISP_SECONDARY --mode 3840x1080 --primary --scale 2x2"
 XRANDR="xrandr $ALL_OUT_ARGS"
 
 case $1 in
   "above" )
-    $XRANDR $PRIMARY_OUT_ARGS $SECONDARY_OUT_ARGS --above $DISP_PRIMARY
-    ;;
-  "right" )
-    $XRANDR $PRIMARY_OUT_ARGS $SECONDARY_OUT_ARGS --right-of $DISP_PRIMARY
-    ;;
-  "left" )
-    $XRANDR $PRIMARY_OUT_ARGS $SECONDARY_OUT_ARGS --left-of $DISP_PRIMARY
+    $XRANDR $PRIMARY_OUT_ARGS --below $DISP_SECONDARY $SECONDARY_OUT_ARGS
     ;;
   "same" )
     $XRANDR $PRIMARY_OUT_ARGS $SECONDARY_OUT_ARGS --same-as $DISP_PRIMARY
     ;;
   "first" )
-    $XRANDR $PRIMARY_OUT_ARGS
+    $XRANDR $PRIMARY_OUT_ARGS --primary
     ;;
   "second" )
-    $XRANDR $SECONDARY_OUT_ARGS --primary --output $DISP_PRIMARY --off
+    $XRANDR $SECONDARY_OUT_ARGS --output $DISP_PRIMARY --off
     ;;
   * )
     echo disp - a small Xrandr wrapper for display setup
