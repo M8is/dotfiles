@@ -10,9 +10,6 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Colorscheme
-Plug 'chriskempson/base16-vim'
-
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
 Plug 'andymass/vim-matchup'
@@ -38,11 +35,8 @@ Plug 'plasticboy/vim-markdown'
 " Initialize plugin system
 call plug#end()
 
-set t_Co=256    " set 256 colors
 set showmatch   " highlight matching surrounding elements
 set autoread	  " read files changed outside vim
-set background=light
-colorscheme base16-solarized-light
 let g:lightline = { 'colorscheme': 'solarized' }
 
 set laststatus=2 " necessary to show lightline
