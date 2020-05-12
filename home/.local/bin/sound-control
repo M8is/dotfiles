@@ -1,0 +1,36 @@
+#!/bin/bash
+
+usage="$(basename "$0") [{+,-} VOLUME | -m]"
+
+sound_running=$(pactl list sinks short | grep RUNNING | awk '{print $1;}')
+if [ -z "$sound_running" ]; then
+  echo No running audio outputs found.
+  exit 1
+fi
+
+case $1 in
+  -m )
+    pactl set-sink-mute $sound_running toggle
+    ;;
+  + )
+    if [ -z $2 ] || [ $2 -lt 0 ] || [ $2 -gt 100 ]; then
+      echo Please enter a percentage for VOLUME.
+      exit 1
+    fi
+    pactl set-sink-mute $sound_running false
+    pactl set-sink-volume $sound_running +$2%
+    ;;
+  - )
+    if [ -z $2 ] || [ $2 -lt 0 ] || [ $2 -gt 100 ]; then
+      echo Please enter a percentage for VOLUME.
+      exit 1
+    fi
+    pactl set-sink-mute $sound_running false
+    pactl set-sink-volume $sound_running -$2%
+    ;;
+  * )
+    echo sound-control - a small pactl wrapper for sound management
+    echo Usage: $usage
+    exit 1
+    ;;
+esac

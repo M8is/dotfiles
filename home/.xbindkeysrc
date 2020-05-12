@@ -29,15 +29,15 @@
 # FN KEYS
 
 # increase volume
-"amixer set Master 5%+"
+"sound-control + 5"
   XF86AudioRaiseVolume
 
 # decrease volume
-"amixer set Master 5%-"
+"sound-control - 5"
   XF86AudioLowerVolume
 
 # toggle mute
-"amixer set Headphone unmute; amixer set Speaker unmute; amixer set Master toggle"
+"sound-control -m"
   XF86AudioMute
 
 # monitor brightness up
