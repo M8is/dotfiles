@@ -12,7 +12,7 @@ XRANDR="xrandr $ALL_OUT_ARGS"
 
 case $1 in
   "above" )
-    $XRANDR $PRIMARY_OUT_ARGS --below $DISP_SECONDARY $SECONDARY_OUT_ARGS
+    $XRANDR $PRIMARY_OUT_ARGS --pos 1920x2160 $SECONDARY_OUT_ARGS
     ;;
   "same" )
     $XRANDR $PRIMARY_OUT_ARGS $SECONDARY_OUT_ARGS --same-as $DISP_PRIMARY
@@ -29,3 +29,5 @@ case $1 in
     exit 1
     ;;
 esac
+
+$HOME/.fehbg
