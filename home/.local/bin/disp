@@ -19,6 +19,7 @@ case $1 in
     ;;
   "first" )
     $XRANDR $PRIMARY_OUT_ARGS --primary
+    $XRANDR --auto
     ;;
   "second" )
     $XRANDR $SECONDARY_OUT_ARGS --output $DISP_PRIMARY --off
