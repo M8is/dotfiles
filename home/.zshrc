@@ -20,6 +20,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 bindkey -v
 export KEYTIMEOUT=1
 
+# toggle background/foreground with Ctrl+z
+_zsh_cli_fg() { fg; }
+zle -N _zsh_cli_fg
+bindkey '^Z' _zsh_cli_fg
+
 # enable autocompletion
 autoload -Uz compinit
 compinit
