@@ -10,6 +10,9 @@ endif
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+" Colorschemes
+Plug 'chriskempson/base16-vim'
+
 " GUI enhancements
 Plug 'itchyny/lightline.vim'
 Plug 'andymass/vim-matchup'
@@ -35,9 +38,25 @@ Plug 'plasticboy/vim-markdown'
 " Initialize plugin system
 call plug#end()
 
+colorscheme base16-solarized-light
+
 set showmatch   " highlight matching surrounding elements
 set autoread	  " read files changed outside vim
-let g:lightline = { 'colorscheme': 'solarized' }
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
+function! LightlineFilename()
+    return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
+" Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 set laststatus=2 " necessary to show lightline
 
@@ -47,7 +66,7 @@ highlight clear SignColumn
 let mapleader=" "
 
 " switch to previous buffer
-nnoremap <leader><leader> :e#<cr>
+nnoremap <leader><leader> <c-^>
 
 " search with fzf
 nnoremap <leader>o :Files .<cr>
@@ -77,17 +96,10 @@ set relativenumber
 set numberwidth=4
 highlight LineNr ctermfg=blue
 
-" paste from clipboard and keep formatting
-map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"
-map <silent><Leader><S-p> :set paste<CR>O<esc>"*]p:set nopaste<cr>"
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
 
-" add supfolders to path (enables search in subfolders)
-set path+=**
-set wildmenu
+" ; as :
+nnoremap ; :
 
-" create tag file
-command! MakeTags !ctags -R .
-" Shortcuts for tag jumping:
-" - ^] to jump to tag under cursor
-" - g^] for ambiguous tags
-" - ^t to jump back up the tag stack
